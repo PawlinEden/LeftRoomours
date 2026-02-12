@@ -1,0 +1,27 @@
+Alle Sounds sind so laut wie möglich. Musst du dann schauen, dass die für die einzelnen Sounds die Lautstärke seperat einstellst.
+Beim Hintergrundrauschen (ZimmerBG) hab ich 2 Dateien exportiert. Einmal laut (volle Lautstärke) und einmal leise (diese Datei hat glaube ne ganz passende relative Lautstärke zu den restlichen sounds)
+
+computer:
+	ankopf sound, mausklick bei schließen
+	wenn passwort richtig ist: bing/positives soundfeedbackgedöns
+
+zettel:
+	papiersound/geraschel/aufschalten
+	beim wegklicken: wegleggeräusch
+
+
+hitnergrund:
+	rauschen/leeren raum aufnehmen
+
+
+kalender:
+
+	seitenumblättergeräusch
+	beim wegklicken: wegleggeräusch wie bei den bildern/zettel
+
+platte:
+	platten rausholgeräusch
+	beim wegklicken: platten reinsteckgeräusch
+
+schublade:
+	schublaude auf und wieder dann zu beim wegklicken

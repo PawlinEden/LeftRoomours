@@ -1,0 +1,340 @@
+[gd_scene load_steps=38 format=3 uid="uid://c3ow6eiaudqfb"]
+
+[ext_resource type="Script" uid="uid://cei5bae5fbe32" path="res://scene/work.gd" id="1_715pw"]
+[ext_resource type="Texture2D" uid="uid://dsoayh7w6wysj" path="res://graphics/backgrounds/bg_work.png" id="1_b6gqr"]
+[ext_resource type="Script" uid="uid://fvkrfsucmspc" path="res://scene/hotspotKalender.gd" id="3_715pw"]
+[ext_resource type="Script" uid="uid://bwoifa1tcnws7" path="res://scene/inspect_ui.gd" id="5_4ex0j"]
+[ext_resource type="Texture2D" uid="uid://7624w7keh04t" path="res://graphics/icons/CloseIcon.png" id="5_715pw"]
+[ext_resource type="AudioStream" uid="uid://dlcyrfxjwsbo3" path="res://audio/Kalender_auf.mp3" id="6_5ownp"]
+[ext_resource type="AudioStream" uid="uid://dabyq881ee545" path="res://audio/Zettel_weg.mp3" id="6_rlqro"]
+[ext_resource type="Script" uid="uid://dr4jl4fhbe15b" path="res://scene/hotspotComputer.gd" id="6_xs3ya"]
+[ext_resource type="Script" uid="uid://c5scyptprqeh4" path="res://scene/hotspotPlatte.gd" id="7_kx60l"]
+[ext_resource type="Script" uid="uid://dah70pcajaek4" path="res://scene/hotspot_bild.gd" id="8_4ex0j"]
+[ext_resource type="Script" uid="uid://dqdl43y52nhh3" path="res://scene/computerOverlay.gd" id="9_qmrld"]
+[ext_resource type="Script" uid="uid://lrpkvd6upgvu" path="res://scene/hotspot_schublade.gd" id="9_voda8"]
+[ext_resource type="Texture2D" uid="uid://6s2l4yd127et" path="res://graphics/work/password_window.png" id="10_6gkmu"]
+[ext_resource type="AudioStream" uid="uid://w60dcd1k3ubq" path="res://audio/Platte_weg.mp3" id="10_rdfrh"]
+[ext_resource type="AudioStream" uid="uid://da0315rgq5jvr" path="res://audio/Platte_nehm.mp3" id="11_a8fsb"]
+[ext_resource type="AudioStream" uid="uid://btv38387rhieq" path="res://audio/Zettel_nehm.mp3" id="11_hi3vg"]
+[ext_resource type="AudioStream" uid="uid://boetb60pc2t2g" path="res://audio/Computer_an.mp3" id="12_k3jsm"]
+[ext_resource type="AudioStream" uid="uid://ctxqhmhu6cwd5" path="res://audio/Computer_aus.mp3" id="13_ea66q"]
+[ext_resource type="AudioStream" uid="uid://dujdgeb5fjsxk" path="res://audio/Computer_bing.mp3" id="14_ea66q"]
+[ext_resource type="AudioStream" uid="uid://b3bba1a5m1mp2" path="res://audio/Schublade_auf.mp3" id="15_a8fsb"]
+[ext_resource type="AudioStream" uid="uid://cfuyw86t2rmr6" path="res://audio/Schublade_zu.mp3" id="15_kgxnx"]
+[ext_resource type="AudioStream" uid="uid://bwukiinodvs7w" path="res://audio/Computer_klick.mp3" id="15_vunvo"]
+[ext_resource type="Texture2D" uid="uid://dao1kpu7llv55" path="res://graphics/icons/Submit_Button.png" id="19_28ief"]
+[ext_resource type="AudioStream" uid="uid://b5fg5ukdsxcix" path="res://audio/ZimmerBG_laut.mp3" id="23_kgxnx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmrld"]
+size = Vector2(142.26892, 132.49998)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_715pw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kx60l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xs3ya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ex0j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qmrld"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gkmu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmrld"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28ief"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ssog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w7p6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8i1qi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_207wj"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_715pw")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 541)
+texture = ExtResource("1_b6gqr")
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="hotspotKalender" type="Area2D" parent="Hotspots" node_paths=PackedStringArray("inspect_ui")]
+position = Vector2(843, 450)
+script = ExtResource("3_715pw")
+inspect_ui = NodePath("InspectUI_Kalender")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/hotspotKalender"]
+position = Vector2(12.999998, -4.999996)
+scale = Vector2(1.81, 1.81)
+shape = SubResource("RectangleShape2D_qmrld")
+
+[node name="InspectUI_Kalender" type="CanvasLayer" parent="Hotspots/hotspotKalender"]
+script = ExtResource("5_4ex0j")
+
+[node name="TextureRect" type="TextureRect" parent="Hotspots/hotspotKalender/InspectUI_Kalender"]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseButton" type="Button" parent="Hotspots/hotspotKalender/InspectUI_Kalender"]
+visible = false
+offset_left = 1135.06
+offset_top = 32.88
+offset_right = 1279.0604
+offset_bottom = 172.88
+theme_override_icons/icon = ExtResource("5_715pw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_715pw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_kx60l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xs3ya")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4ex0j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qmrld")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6gkmu")
+metadata/_edit_use_anchors_ = true
+
+[node name="ZettelWegPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotKalender/InspectUI_Kalender"]
+stream = ExtResource("6_rlqro")
+volume_db = -10.0
+
+[node name="KalenderAufPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotKalender"]
+stream = ExtResource("6_5ownp")
+volume_db = -10.0
+
+[node name="hotspotComputer" type="Area2D" parent="Hotspots" node_paths=PackedStringArray("computer_overlay")]
+position = Vector2(843, 450)
+script = ExtResource("6_xs3ya")
+computer_overlay = NodePath("../../ComputerOverlay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/hotspotComputer"]
+position = Vector2(-657.4281, 102.39398)
+rotation = -1.8691112
+scale = Vector2(1.8100001, 1.8100001)
+shape = SubResource("RectangleShape2D_qmrld")
+
+[node name="hotspotPlatte" type="Area2D" parent="Hotspots" node_paths=PackedStringArray("inspect_ui")]
+position = Vector2(843, 450)
+script = ExtResource("7_kx60l")
+inspect_ui = NodePath("InspectUI_Platte")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/hotspotPlatte"]
+position = Vector2(707.62573, -10.125366)
+rotation = -3.1278472
+scale = Vector2(2.9290469, 2.2326543)
+shape = SubResource("RectangleShape2D_qmrld")
+
+[node name="InspectUI_Platte" type="CanvasLayer" parent="Hotspots/hotspotPlatte"]
+script = ExtResource("5_4ex0j")
+
+[node name="TextureRect" type="TextureRect" parent="Hotspots/hotspotPlatte/InspectUI_Platte"]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseButton" type="Button" parent="Hotspots/hotspotPlatte/InspectUI_Platte"]
+offset_left = 1506.0
+offset_top = 38.0
+offset_right = 1650.0004
+offset_bottom = 178.0
+theme_override_icons/icon = ExtResource("5_715pw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_715pw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_kx60l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xs3ya")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4ex0j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qmrld")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6gkmu")
+metadata/_edit_use_anchors_ = true
+
+[node name="ZettelWegPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotPlatte/InspectUI_Platte"]
+stream = ExtResource("10_rdfrh")
+volume_db = -10.0
+
+[node name="PlatteNehmPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotPlatte"]
+stream = ExtResource("11_a8fsb")
+volume_db = -10.0
+
+[node name="hotspotBild" type="Area2D" parent="Hotspots" node_paths=PackedStringArray("inspect_ui")]
+position = Vector2(1686, 900)
+script = ExtResource("8_4ex0j")
+inspect_ui = NodePath("InspectUI_Bild")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/hotspotBild"]
+position = Vector2(-1172.9999, -575)
+rotation = -3.1278472
+scale = Vector2(1.5, 1.143)
+shape = SubResource("RectangleShape2D_qmrld")
+
+[node name="InspectUI_Bild" type="CanvasLayer" parent="Hotspots/hotspotBild"]
+script = ExtResource("5_4ex0j")
+
+[node name="TextureRect" type="TextureRect" parent="Hotspots/hotspotBild/InspectUI_Bild"]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseButton" type="Button" parent="Hotspots/hotspotBild/InspectUI_Bild"]
+offset_left = 1506.0
+offset_top = 38.0
+offset_right = 1650.0004
+offset_bottom = 178.0
+theme_override_icons/icon = ExtResource("5_715pw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_715pw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_kx60l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xs3ya")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4ex0j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qmrld")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6gkmu")
+metadata/_edit_use_anchors_ = true
+
+[node name="ZettelWegPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotBild/InspectUI_Bild"]
+stream = ExtResource("6_rlqro")
+volume_db = -10.0
+
+[node name="ZettelNehmPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotBild"]
+stream = ExtResource("11_hi3vg")
+volume_db = -10.0
+
+[node name="hotspotSchublade" type="Area2D" parent="Hotspots" node_paths=PackedStringArray("inspect_ui")]
+position = Vector2(3372, 1800)
+script = ExtResource("9_voda8")
+inspect_ui = NodePath("InspectUI_Schublade")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/hotspotSchublade"]
+position = Vector2(-2377, -811)
+rotation = -3.1278472
+scale = Vector2(2.37, 1.457)
+shape = SubResource("RectangleShape2D_qmrld")
+
+[node name="InspectUI_Schublade" type="CanvasLayer" parent="Hotspots/hotspotSchublade"]
+script = ExtResource("5_4ex0j")
+
+[node name="TextureRect" type="TextureRect" parent="Hotspots/hotspotSchublade/InspectUI_Schublade"]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseButton" type="Button" parent="Hotspots/hotspotSchublade/InspectUI_Schublade"]
+offset_left = 1358.0
+offset_top = 44.0
+offset_right = 1502.0004
+offset_bottom = 184.0
+theme_override_icons/icon = ExtResource("5_715pw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_715pw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_kx60l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xs3ya")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4ex0j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qmrld")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6gkmu")
+metadata/_edit_use_anchors_ = true
+
+[node name="ZettelWegPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotSchublade/InspectUI_Schublade"]
+stream = ExtResource("15_kgxnx")
+
+[node name="SchubladeAufPlayer" type="AudioStreamPlayer" parent="Hotspots/hotspotSchublade"]
+stream = ExtResource("15_a8fsb")
+
+[node name="ComputerOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("hotspots_root")]
+script = ExtResource("9_qmrld")
+hotspots_root = NodePath("../Hotspots")
+
+[node name="Image3" type="TextureRect" parent="ComputerOverlay"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CloseArea" type="Area2D" parent="ComputerOverlay/Image3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerOverlay/Image3/CloseArea"]
+position = Vector2(231.3, 103.61)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_qmrld")
+
+[node name="PasswordLayer" type="Control" parent="ComputerOverlay"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="ComputerOverlay/PasswordLayer"]
+layout_mode = 0
+offset_left = -125.0
+offset_top = -82.0
+offset_right = 1795.0
+offset_bottom = 998.0
+texture = ExtResource("10_6gkmu")
+
+[node name="CloseArea" type="Area2D" parent="ComputerOverlay/PasswordLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerOverlay/PasswordLayer/CloseArea"]
+position = Vector2(481.00006, 333)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_qmrld")
+
+[node name="LineEdit" type="LineEdit" parent="ComputerOverlay/PasswordLayer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_left = 540.0
+offset_top = 529.0
+offset_right = 853.8947
+offset_bottom = 577.0
+rotation = -0.060317423
+placeholder_text = "Password..."
+alignment = 1
+virtual_keyboard_type = 2
+
+[node name="SubmitButton" type="Button" parent="ComputerOverlay/PasswordLayer"]
+visible = false
+layout_mode = 0
+offset_left = 876.0
+offset_top = 466.0
+offset_right = 1012.0
+offset_bottom = 598.0
+theme_override_icons/icon = ExtResource("19_28ief")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_28ief")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0ssog")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8w7p6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8i1qi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_207wj")
+
+[node name="Image2" type="TextureRect" parent="ComputerOverlay"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CloseArea" type="Area2D" parent="ComputerOverlay/Image2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerOverlay/Image2/CloseArea"]
+position = Vector2(1033, 298)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_qmrld")
+
+[node name="Image1" type="TextureRect" parent="ComputerOverlay"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CloseArea" type="Area2D" parent="ComputerOverlay/Image1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerOverlay/Image1/CloseArea"]
+position = Vector2(120.74, 207.96)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_qmrld")
+
+[node name="ComputerSoundPlayer" type="AudioStreamPlayer" parent="ComputerOverlay"]
+stream = ExtResource("12_k3jsm")
+
+[node name="ComputerOffPlayer" type="AudioStreamPlayer" parent="ComputerOverlay"]
+stream = ExtResource("13_ea66q")
+
+[node name="ComputerBingPlayer" type="AudioStreamPlayer" parent="ComputerOverlay"]
+stream = ExtResource("14_ea66q")
+
+[node name="ComputerKlickPlayer" type="AudioStreamPlayer" parent="ComputerOverlay"]
+stream = ExtResource("15_vunvo")
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_kgxnx")
+volume_db = -10.0
+autoplay = true
